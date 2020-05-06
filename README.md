@@ -11,8 +11,6 @@ Because of the modular and node based nature of the toolset present in HMT, and 
 
 ### Installation:
 
-**INSTALLATION PROCEDURE HAS BEEN SIMPLIFIED FROM PREVIOUS RELEASES. PLEASE READ CAREFULLY.**
-
 ## Step 1: Downloading MOPs
 **Option 1 (users who are familiar with Git)**:
 Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
