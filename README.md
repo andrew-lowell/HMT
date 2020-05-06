@@ -3,11 +3,11 @@ HMT
 
 ![HMT logo](https://github.com/andrew-lowell/HMT/blob/master/hmt_logo_01.png)
 
-Motion OPerators for Houdini, a motion graphics toolkit.
+Houdini Music Toolset, extends the users' capabilities into the domain of music composition.HMT makes use of Houdini's powerful geometry and simulation processing in a set of new tools and workflows specifically designed for music.
 
-MOPs is intended to be an easy way to manipulate lots of copies of things, leveraging Houdini's packed primitives. The goal is a familiar and fast workflow for motion graphics artists migrating from other platforms, as well as a powerful toolkit for more experienced Houdini artists to quickly design and execute new effects.
+It uses point clouds and attributes within the graphical 3D environment to perform standard sequencing tasks present in dedicated music composition packages. It uses CHOPs as a back-end to import or export MIDI file data either to the midi file format, or directly to a MIDI port. It allows for artists or composers to make use of powerful simulation tools and Houdini's open node-based architecture normally dedicated to producing photorealistic simulations of natural phenomenon and apply the same tools if desired to manipulating or generating patterns of notes.
 
-MOPs is based on an internal framework of nodes that convert point attributes to packed primitive intrinsic attributes and back again, making it easy for technical artists to develop new MOPs modifiers.
+Because of the modular and node based nature of the toolset present in HMT, and that it adheres when possible to existing Houdini conventions, it allows users to easily develop their own workflows and tools for music creation or processing.
 
 ### Installation:
 
