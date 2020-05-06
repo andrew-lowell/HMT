@@ -11,13 +11,7 @@ Because of the modular and node based nature of the toolset present in HMT, and 
 
 ### Installation:
 
-## Step 1: Downloading MOPs
-**Option 1 (users who are familiar with Git)**:
-Navigate to the folder you want to contain MOPs, and from BASH / Git BASH type:
-`git clone https://github.com/toadstorm/MOPS.git`
-
-**Option 2 (what's Git?)**:
-Download the desired release directly from the [releases page](https://github.com/toadstorm/MOPS/releases) and extract it to your hard drive or network share.
+Download the desired release directly from the [releases page](https://github.com/andrew-lowell/HMT/releases) and extract it to your hard drive or network share.
 
 ## Step 2: Configuring your Environment
 
