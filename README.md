@@ -1,7 +1,7 @@
-MOPs
+HMT
 ======
 
-![MOPs logo](https://github.com/toadstorm/MOPS/blob/master/mops_logo_01.png)
+![HMT logo](https://github.com/andrew-lowell/HMT/blob/master/hmt_logo_01.png)
 
 Motion OPerators for Houdini, a motion graphics toolkit.
 
