@@ -19,27 +19,6 @@ Download the desired release directly from the [releases page](https://github.co
 For those of you running Houdini 17.5 or later, you have an option for a much easier install. 
 Simply create a folder inside your Houdini preferences directory (where the houdini.env typically is) called "packages", and place the MOPS.json file from the MOPs download into that folder. Then edit MOPS.json and change the "MOPS" variable to match the install path.
 
-**Option 2: Edit Houdini.env**
-You need to add the MOPS root directory to your Houdini environment file. For more information about the Houdini environment file, see [this help link](https://www.sidefx.com/docs/houdini/basics/config_env.html#setting-environment-variables).
-Edit your houdini.env file and create a variable called MOPS that points to the new folder you just extracted MOPs to. The folder you point to should be the one that contains "otls", "scripts", and "toolbar":
-`MOPS="/path/to/MOPS"`
-
-Finally, add `$MOPS` to your HOUDINI_PATH:
-`HOUDINI_PATH=$HOUDINI_PATH;$MOPS;&`
-
-If you already have a HOUDINI_PATH defined, you can simply append $MOPS to that existing HOUDINI_PATH. For example, if you're using both MOPs and QLib:
-
-```
-MOPS="/path/to/MOPS"
-QLIB="/path/to/qlib"
-HOUDINI_PATH=$HOUDINI_PATH;$QLIB;$MOPS;&
-```
-
-*Note:* On Linux and OSX, use `:` instead of `;` to separate your paths. 
-
-It's important that your HOUDINI_PATH always ends in ;&. You can append any other paths you like,
-but the last path should be `&`. This will ensure that Houdini's built-in operators work normally.
-
 ### Usage basics:
 
 The main types of nodes in MOPs are the Generators, Modifiers, and Falloff nodes. Generators like the MOPs Instancer create copies of objects. Modifiers transform or otherwise change the objects. Falloffs weight the effects of Modifiers.
