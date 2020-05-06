@@ -19,8 +19,8 @@ Download the desired release directly from the [releases page](https://github.co
 Create a folder inside your Houdini preferences directory (where the houdini.env typically lives) called "packages", and place the HMT.json file from the HMT download into that folder. Then edit HMT.json and change the "HMT" variable to match the install path.
 
 ### Usage basics:
-Tutorial Links
-Shelves
+Tutorial Links\
+Shelves\
 Shelf Tool Setups
 
 For more detailed examples, see the "examples" folder for HIP files.
