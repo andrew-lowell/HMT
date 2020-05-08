@@ -16,11 +16,17 @@ Download the desired release directly from the [releases page](https://github.co
 **Plugin (17.5+ only)**
 Create a folder inside your Houdini preferences directory (where the houdini.env typically lives) called "packages", and place the HMT.json file from the HMT download into that folder. Then edit HMT.json and change the "HMT" variable to match the install path.
 
+**OS Support (Full functionality Windows only)**
+While the toolset is based entirely in Houdini and will perform it's sequencing functions regardless of operating system, the MIDI Output CHOP will only perform live/real-time export to a MIDI channel on the Windows operating system. When Apple/Linux are supported this page will be updated. Exporting to MIDI files is supported on all operating systems.
+
+### Useful Software used in Conjunction with HMT:
+https://www.tobias-erichsen.de/software/loopmidi.html
+
 ### Usage basics:
 Tutorial Links
 Shelf Tools
 
-  For more detailed examples, see the [provided examples](https://github.com/andrew-lowell/HMT/tree/master/examples) folder for Houdini (.hip) files.
+For more detailed examples, see the [provided examples](https://github.com/andrew-lowell/HMT/tree/master/examples) folder for Houdini (.hip) files.
 
 ### Technical Specifications:
 
@@ -32,26 +38,26 @@ Point attributes needed for the proper funtionality of HMT:
 * `i@channel`: The MIDI channel output of the note, often in a range of 1-16
 
 Point attributes used for workability in HMT:
-* s@note_letter: The commonplace keyboard letter assignment of the note
-* s@mode_name: The name of the mode corresponding with the i@mode attribute
-* f@pan: An optional attribute for more flexible panning workflows
+* `s@note_letter`: The commonplace keyboard letter assignment of the note
+* `s@mode_name`: The name of the mode corresponding with the i@mode attribute
+* `f@pan`: An optional attribute for more flexible panning workflows
 
 Point attributes which are optional for output but needed in some HMT workflows:
-* i@base_note: The key or modal starting point, for instance "The key of Ab Minor." Represented in MIDI note values (0-127)
-* i@note_octave: The octave on the common MIDI keyboard when dealing with mode progressions
-* i@mode: The mode index from 0-7
-* i@mode_progression: The modal progression of the notes contained within an octave in values from 0-7. 0 being the root note. When numbers go beyond this value they will progress into the next or previous octave
-* i@minor_type: The minor style of the Aolean mode common in western minor scales. 0-2 represent Natural, Harmonic, and Melodic types.
+* `i@base_note`: The key or modal starting point, for instance "The key of Ab Minor." Represented in MIDI note values (0-127)
+* `i@note_octave`: The octave on the common MIDI keyboard when dealing with mode progressions
+* `i@mode`: The mode index from 0-7
+* `i@mode_progression`: The modal progression of the notes contained within an octave in values from 0-7. 0 being the root note. When numbers go beyond this value they will progress into the next or previous octave
+* `i@minor_type`: The minor style of the Aolean mode common in western minor scales. 0-2 represent Natural, Harmonic, and Melodic types.
 
 Point attributes used for visualization:
-* v@P: The time(x) and note(y) of the notes
-* f@pscale: The velocity of the notes
-* v@N: The duration(x) of the notes
-* v@Cd: Used for various color visualizations representing velocity, pan, channel, or mode
+* `v@P`: The time(x) and note(y) of the notes
+* `f@pscale`: The velocity of the notes
+* `v@N`: The duration(x) of the notes
+* `v@Cd`: Used for various color visualizations representing velocity, pan, channel, or mode
 
 Detail attributes used for visualization:
-* f@notation_viz_height: When using tools which alter the vertical position of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
-* f@notation_viz_scale: When using tools which alter the pscale of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
+* `f@notation_viz_height`: When using tools which alter the vertical position of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
+* `f@notation_viz_scale`: When using tools which alter the pscale of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
 
 ### Developers:
 HMT (Houdini Music Toolset) is developed and maintained by Andrew Lowell. 
