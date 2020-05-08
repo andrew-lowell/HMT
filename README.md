@@ -20,7 +20,7 @@ Create a folder inside your Houdini preferences directory (where the houdini.env
 Tutorial Links
 Shelf Tools
 
-  For more detailed examples, see the [provided examples](https://github.com/andrew-lowell/HMT/tree/master/examples) folder for HIP files.
+  For more detailed examples, see the [provided examples](https://github.com/andrew-lowell/HMT/tree/master/examples) folder for Houdini (.hip) files.
 
 ### Technical Specifications:
 
@@ -42,6 +42,16 @@ Point attributes which are optional for output but needed in some HMT workflows:
 * i@mode: The mode index from 0-7
 * i@mode_progression: The modal progression of the notes contained within an octave in values from 0-7. 0 being the root note. When numbers go beyond this value they will progress into the next or previous octave
 * i@minor_type: The minor style of the Aolean mode common in western minor scales. 0-2 represent Natural, Harmonic, and Melodic types.
+
+Point attributes used for visualization:
+* v@P: The time(x) and note(y) of the notes
+* f@pscale: The velocity of the notes
+* v@N: The duration(x) of the notes
+* v@Cd: Used for various color visualizations representing velocity, pan, channel, or mode
+
+Detail attributes used for visualization:
+f@notation_viz_height: When using tools which alter the vertical position of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
+f@notation_viz_scale: When using tools which alter the pscale of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
 
 ### Developers:
 HMT (Houdini Music Toolset) is developed and maintained by Andrew Lowell. 
