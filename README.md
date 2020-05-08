@@ -63,7 +63,7 @@ Detail attributes used for visualization:
 * `f@notation_viz_scale`: When using tools which alter the pscale of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
 
 ### Developers:
-HMT (Houdini Music Toolset) is developed and maintained by Andrew Lowell. 
+**HMT (Houdini Music Toolset)** is developed and maintained by ***Andrew Lowell***. 
 
 ### Notice:
 This software is provided AS-IS, with absolutely no warranty of any kind, express or otherwise. We disclaim any liability for damages resulting from using this software.
