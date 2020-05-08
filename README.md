@@ -50,8 +50,8 @@ Point attributes used for visualization:
 * v@Cd: Used for various color visualizations representing velocity, pan, channel, or mode
 
 Detail attributes used for visualization:
-f@notation_viz_height: When using tools which alter the vertical position of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
-f@notation_viz_scale: When using tools which alter the pscale of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
+* f@notation_viz_height: When using tools which alter the vertical position of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
+* f@notation_viz_scale: When using tools which alter the pscale of a point-cloud, this detail attribute is used to preserve a uniform visualization scheme in downstream nodes
 
 ### Developers:
 HMT (Houdini Music Toolset) is developed and maintained by Andrew Lowell. 
