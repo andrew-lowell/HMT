@@ -20,7 +20,7 @@ Create a folder inside your Houdini preferences directory (where the houdini.env
 While the toolset is based entirely in Houdini and will perform it's sequencing functions regardless of operating system, the MIDI Output CHOP will only perform live/real-time export to a MIDI channel on the Windows operating system. When Apple/Linux are supported this page will be updated. Exporting to MIDI files is supported on all operating systems.
 
 ### Useful Software used in Conjunction with HMT:
-[loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html) forms a virtual MIDI port on windows. This can then be used to send MIDI data directly to audio and sequencer software without an external device or cable.
+**[loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html) forms a virtual MIDI port on Windows**. This can then be used to send MIDI data directly to audio and sequencer software without an external device or cable.
 
 **Audio sampler/sequencing software.** Popular audio sampler/synthesizer software includes **Reason**, **Ableton**, or other commercial and free applications. The HMT does not produce audio directly. It sends MIDI notes and events via the MIDI Out CHOP to your application of choice to produce the sound.
 
