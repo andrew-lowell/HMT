@@ -19,7 +19,7 @@ Create a folder inside your Houdini preferences directory (where the houdini.env
 **OS Support (Full functionality Windows only)**
 While the toolset is based entirely in Houdini and will perform it's sequencing functions regardless of operating system, the MIDI Output CHOP will only perform live/real-time export to a MIDI channel on the Windows operating system. When Apple/Linux are supported this page will be updated. Exporting to MIDI files is supported on all operating systems.
 
-**[Supplementary Software]**(https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md)
+**[Supplementary Software](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md)**
 
 ### Usage basics:
 ***Tutorial Links***
