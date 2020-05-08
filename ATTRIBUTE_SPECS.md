@@ -1,4 +1,4 @@
-Point attributes needed for the proper functionality of HMT:
+**Point attributes** needed for the proper ***functionality*** of HMT:
 * `f@time`: The time the MIDI note occurs in seconds
 * `i@note`: The pitch of the note in MIDI values (`0-127`)
 * `f@vel`: The MIDI velocity of the note, represented in values from `0.0-1.0` (for `0-127`)
