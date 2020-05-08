@@ -7,6 +7,7 @@
 
   <toolshelf name="HMT" label="Music Toolset (HMT)">
     <memberTool name="mode_progression"/>
+    <memberTool name="random_notes"/>
   </toolshelf>
 
   <tool name="HMT_updater" label="HMT Updater" icon="PLASMA_App">
@@ -703,6 +704,494 @@ if ($argc >= 5 && "$arg4" != "") then
 endif
 if ($argc >= 6 && "$arg6" != "") then
     set input = $_obj_setup_line
+    if ($arg8) then
+        opwire -n -i $arg6 -0 $input
+    else
+        opwire -n -o $oidx $arg6 -0 $input
+    endif
+endif
+opcf $saved_path
+'''
+hou.hscript(h_preamble + h_extra_args + h_cmd)
+]]></script>
+  </tool>
+
+  <tool name="random_notes" label="Random Notes" icon="$HMT/icons/hmt_icon.png">
+    <toolMenuContext name="network">
+      <contextOpType>Sop/grid</contextOpType>
+    </toolMenuContext>
+    <script scriptType="python"><![CDATA[
+import sys
+import toolutils
+
+outputitem = None
+inputindex = -1
+inputitem = None
+outputindex = -1
+
+num_args = 1
+h_extra_args = ''
+pane = toolutils.activePane(kwargs)
+if not isinstance(pane, hou.NetworkEditor):
+    pane = hou.ui.paneTabOfType(hou.paneTabType.NetworkEditor)
+    if pane is None:
+       hou.ui.displayMessage(
+               'Cannot create node: cannot find any network pane')
+       sys.exit(0)
+else: # We're creating this tool from the TAB menu inside a network editor
+    pane_node = pane.pwd()
+    if kwargs.has_key("outputnodename") and kwargs.has_key("inputindex"):
+        outputitem = pane_node.item(kwargs["outputnodename"])
+        inputindex = kwargs["inputindex"]
+        h_extra_args += 'set arg4 = "' + kwargs["outputnodename"] + '"\n'
+        h_extra_args += 'set arg5 = "' + str(inputindex) + '"\n'
+        num_args = 6
+    if kwargs.has_key("inputnodename") and kwargs.has_key("outputindex"):
+        inputitem = pane_node.item(kwargs["inputnodename"])
+        outputindex = kwargs["outputindex"]
+        h_extra_args += 'set arg6 = "' + kwargs["inputnodename"] + '"\n'
+        h_extra_args += 'set arg9 = "' + str(outputindex) + '"\n'
+        num_args = 9 
+    if kwargs.has_key("autoplace"):
+        autoplace = kwargs["autoplace"]
+    else:
+        autoplace = False
+    # If shift-clicked we want to auto append to the current
+    # node
+    if kwargs.has_key("shiftclick") and kwargs["shiftclick"]:
+        if inputitem is None:
+            inputitem = pane.currentNode()
+            outputindex = 0
+    if kwargs.has_key("nodepositionx") and             kwargs.has_key("nodepositiony"):
+        try:
+            pos = [ float( kwargs["nodepositionx"] ),
+                    float( kwargs["nodepositiony"] )]
+        except:
+            pos = None
+    else:
+        pos = None
+
+    if not autoplace and not pane.listMode():
+        if pos is not None:
+            pass
+        elif outputitem is None:
+            pos = pane.selectPosition(inputitem, outputindex, None, -1)
+        else:
+            pos = pane.selectPosition(inputitem, outputindex,
+                                      outputitem, inputindex)
+
+    if pos is not None:
+        if kwargs.has_key("node_bbox"):
+            size = kwargs["node_bbox"]
+            pos[0] -= size[0] / 2
+            pos[1] -= size[1] / 2
+        else:
+            pos[0] -= 0.573625
+            pos[1] -= 0.220625
+        h_extra_args += 'set arg2 = "' + str(pos[0]) + '"\n'
+        h_extra_args += 'set arg3 = "' + str(pos[1]) + '"\n'
+h_extra_args += 'set argc = "' + str(num_args) + '"\n'
+            
+pane_node = pane.pwd()
+child_type = pane_node.childTypeCategory().nodeTypes()
+
+if not child_type.has_key('attribvop'):
+   hou.ui.displayMessage(
+           'Cannot create node: incompatible pane network type')
+   sys.exit(0)
+
+# First clear the node selection
+pane_node.setSelected(False, True)
+
+h_path = pane_node.path()
+h_preamble = 'set arg1 = "' + h_path + '"\n'
+h_cmd = r''' 
+if ($argc < 2 || "$arg2" == "") then
+   set arg2 = 0
+endif
+if ($argc < 3 || "$arg3" == "") then
+   set arg3 = 0
+endif
+# Automatically generated script
+# $arg1 - the path to add this node
+# $arg2 - x position of the tile
+# $arg3 - y position of the tile
+# $arg4 - input node to wire to
+# $arg5 - which input to wire to
+# $arg6 - output node to wire to
+# $arg7 - the type of this node
+# $arg8 - the node is an indirect input
+# $arg9 - index of output from $arg6
+
+\set noalias = 1
+set saved_path = `execute("oppwf")`
+opcf $arg1
+
+# Node $_obj_geo1_grid (Sop/grid)
+set _obj_geo1_grid = `run("opadd -e -n -v grid grid")`
+oplocate -x `$arg2 + 0` -y `$arg3 + 0` $_obj_geo1_grid
+opparm -V 18.0.287 $_obj_geo1_grid orient ( xy ) size ( 9 4.5999999999999996 ) t ( 5 4 0 )
+opcolor -c 0.3059999942779541 0.3059999942779541 0.3059999942779541 $_obj_geo1_grid
+opset -d off -r off -h off -f off -y off -t on -l off -s off -u off -F off -c on -e on -b off $_obj_geo1_grid
+opexprlanguage -s hscript $_obj_geo1_grid
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_grid
+opset -p on $_obj_geo1_grid
+opcf $arg1
+
+# Node $_obj_geo1_viz (Sop/hmt_viz)
+set _obj_geo1_viz = `run("opadd -e -n -v hmt_viz viz")`
+oplocate -x `$arg2 + 0` -y `$arg3 + -3.3885000000000001` $_obj_geo1_viz
+opparm $_obj_geo1_viz vertical_viz_scale ( 0.056000000000000001 ) vel_viz_scale ( 0.52300000000000002 )
+opcolor -c 1 1 1 $_obj_geo1_viz
+opset -d on -r on -h off -f off -y off -t off -l off -s off -u off -F off -c on -e on -b off $_obj_geo1_viz
+opexprlanguage -s hscript $_obj_geo1_viz
+opuserdata -n '___Version___' -v '' $_obj_geo1_viz
+opset -p on $_obj_geo1_viz
+opcf $arg1
+
+# Node $_obj_geo1_scatter (Sop/scatter::2.0)
+set _obj_geo1_scatter = `run("opadd -e -n -v scatter::2.0 scatter")`
+oplocate -x `$arg2 + 0` -y `$arg3 + -1.1295000000000002` $_obj_geo1_scatter
+opparm -V 18.0.287 $_obj_geo1_scatter densityscale ( 1 ) forcetotal ( off ) useemergencylimit ( off ) relaxpoints ( off )
+opcolor -c 0.3059999942779541 0.3059999942779541 0.3059999942779541 $_obj_geo1_scatter
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F off -c on -e on -b off $_obj_geo1_scatter
+opexprlanguage -s hscript $_obj_geo1_scatter
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_scatter
+opset -p on $_obj_geo1_scatter
+opcf $arg1
+
+# Node $_obj_geo1_OUTPUT_midi (Sop/hmt_midi_output)
+set _obj_geo1_OUTPUT_midi = `run("opadd -e -n -v hmt_midi_output OUTPUT_midi")`
+oplocate -x `$arg2 + 0` -y `$arg3 + -4.5179999999999998` $_obj_geo1_OUTPUT_midi
+chblockbegin
+chadd -t 0 0 $_obj_geo1_OUTPUT_midi output_midi
+chkey -t 0 -v 0 -m 0 -a 0 -A 0 -T a  -F 'ch("../../../entire")' $_obj_geo1_OUTPUT_midi/output_midi
+chblockend
+opcolor -c 1 1 1 $_obj_geo1_OUTPUT_midi
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F off -c on -e on -b off $_obj_geo1_OUTPUT_midi
+opexprlanguage -s hscript $_obj_geo1_OUTPUT_midi
+opuserdata -n '___Version___' -v '' $_obj_geo1_OUTPUT_midi
+opset -p on $_obj_geo1_OUTPUT_midi
+opcf $arg1
+
+# Node $_obj_geo1_playbar (Sop/hmt_time_bar)
+set _obj_geo1_playbar = `run("opadd -e -n -v hmt_time_bar playbar")`
+oplocate -x `$arg2 + 0` -y `$arg3 + -5.6475` $_obj_geo1_playbar
+chblockbegin
+chadd -t 0 0 $_obj_geo1_playbar input
+chkey -t 0 -v 0 -m 0 -a 0 -A 0 -T a  -F 'opninputs(".") > 0' $_obj_geo1_playbar/input
+chblockend
+opparm $_obj_geo1_playbar
+opcolor -c 1 1 1 $_obj_geo1_playbar
+opset -d off -r off -h off -f off -y off -t on -l off -s off -u off -F off -c on -e on -b off $_obj_geo1_playbar
+opexprlanguage -s hscript $_obj_geo1_playbar
+opuserdata -n '___Version___' -v '' $_obj_geo1_playbar
+opuserdata -n 'nodeshape' -v 'clipped_left' $_obj_geo1_playbar
+opset -p on $_obj_geo1_playbar
+opcf $arg1
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes (Sop/attribvop)
+set _obj_geo1_set_random_hmt_basic_attributes = `run("opadd -e -n -v attribvop set_random_hmt_basic_attributes")`
+oplocate -x `$arg2 + 0` -y `$arg3 + -2.2590000000000003` $_obj_geo1_set_random_hmt_basic_attributes
+opspareds '    parm {         name    "bindgroup"         baseparm         label   "Group"         export  none         bindselector uvselect "Modify Points"             "Select the points to affect and press Enter to complete."             0 1 0xffffffff 0 bindgrouptype 0     }     parm {         name    "bindgrouptype"         baseparm         label   "Group Type"         export  none     }     parm {         name    "bindclass"         baseparm         label   "Run Over"         export  none     }     parm {         name    "vex_numcount"         baseparm         label   "Number Count"         export  none     }     parm {         name    "vex_threadjobsize"         baseparm         label   "Thread Job Size"         export  none     }     group {         name    "stdswitcher3"         label   "Vex Setup"          parm {             name    "vexsrc"             baseparm             label   "Vex Source"             export  all         }         parm {             name    "shoppath"             baseparm             label   "Shop Path"             export  all         }         parm {             name    "script"             baseparm             label   "Script"             export  all         }         parm {             name    "clear"             baseparm             label   "Re-load VEX Functions"             export  all         }         parm {             name    "vop_compiler"             baseparm             label   "Compiler"             export  none         }         parm {             name    "vop_forcecompile"             baseparm             label   "Force Compile"             export  none         }         parm {             name    "vex_cwdpath"             baseparm             label   "Evaluation Node Path"             export  none         }         parm {             name    "vex_outputmask"             baseparm             label   "Export Parameters"             export  none         }         parm {             name    "vex_multithread"             baseparm             label   "Enable Multithreading"             export  none         }     }      group {         name    "stdswitcher3_1"         label   "Attribute Bindings"          parm {             name    "vex_precision"             baseparm             label   "VEX Precision"             export  none         }         parm {             name    "autobind"             baseparm             label   "Autobind by Name"             export  none         }         multiparm {             name    "bindings"             label    "Number of Bindings"             baseparm             default 0             parmtag { "multistartoffset" "1" }              parm {                 name    "bindname#"                 baseparm                 label   "Attribute Name"                 export  none             }             parm {                 name    "bindparm#"                 baseparm                 label   "VEX Parameter"                 export  none             }         }          parm {             name    "groupautobind"             baseparm             label   "Autobind Groups by Name"             export  none         }         multiparm {             name    "groupbindings"             label    "Group Bindings"             baseparm             default 0             parmtag { "multistartoffset" "1" }              parm {                 name    "bindgroupname#"                 baseparm                 label   "Group Name"                 export  none             }             parm {                 name    "bindgroupparm#"                 baseparm                 label   "VEX Parameter"                 export  none             }         }          parm {             name    "vex_updatenmls"             baseparm             label   "Update Normals If Displaced"             export  none         }         parm {             name    "vex_matchattrib"             baseparm             label   "Attribute to Match"             export  none         }         parm {             name    "vex_inplace"             baseparm             label   "Compute Results In Place"             export  none         }         parm {             name    "vex_selectiongroup"             baseparm             label   "Output Selection Group"             export  none         }     }      parm {         name    "ptnum"         label   "Point Number"         type    integer         invisible         default { "0" }         range   { 0 10 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "OpInput1"         label   "First Input"         type    string         invisible         default { "" }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "P"         label   "P"         type    float         invisible         size    3         default { "0" "0" "0" }         range   { 0 10 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "seed"         label   "Seed"         type    float         default { "0" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "duration"         label   "duration"         type    float         invisible         default { "0" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "sepparm4"         label   "Separator"         type    separator         default { "" }     }     parm {         name    "min_note"         label   "Min Note"         type    float         default { "20" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "max_note"         label   "Max Note"         type    float         default { "100" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "sepparm3"         label   "Separator"         type    separator         default { "" }     }     parm {         name    "min_vel"         label   "Min Vel"         type    float         default { "0.05" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "max_vel"         label   "Max Vel"         type    float         default { "0.8" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "sepparm"         label   "Separator"         type    separator         default { "" }     }     parm {         name    "min_duration"         label   "Min Duration"         type    float         default { "0" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "max_duration"         label   "Max Duration"         type    float         default { "2" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "note"         label   "note"         type    integer         invisible         default { "0" }         range   { 0 10 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "vel"         label   "vel"         type    float         invisible         default { "0" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "sepparm2"         label   "Separator"         type    separator         default { "" }     }     parm {         name    "channel"         label   "channel"         type    integer         invisible         default { "0" }         range   { 0 10 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "min_channel"         label   "Min Channel"         type    integer         default { "1" }         range   { 0 10 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "max_channel"         label   "Max Channel"         type    integer         default { "5" }         range   { 0 10 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     }     parm {         name    "time"         label   "time"         type    float         invisible         default { "0" }         range   { 0 1 }         parmtag { "parmvop" "1" }         parmtag { "shaderparmcontexts" "cvex" }     } ' $_obj_geo1_set_random_hmt_basic_attributes
+opparm $_obj_geo1_set_random_hmt_basic_attributes  bindings ( 0 ) groupbindings ( 0 )
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes seed ( 0.37 ) min_note ( 30 ) max_duration ( 5 )
+opcolor -c 0.14499999582767487 0.66699999570846558 0.55699998140335083 $_obj_geo1_set_random_hmt_basic_attributes
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F off -c on -e on -b off $_obj_geo1_set_random_hmt_basic_attributes
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes
+opcf $_obj_geo1_set_random_hmt_basic_attributes
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_duration_seed (Vop/hmt_internal_rand_seed)
+set _obj_geo1_set_random_hmt_basic_attributes_duration_seed = `run("opadd -e -n -v hmt_internal_rand_seed duration_seed")`
+oplocate -x `$arg2 + 2.9255300000000002` -y `$arg3 + 6.64527` $_obj_geo1_set_random_hmt_basic_attributes_duration_seed
+opparm $_obj_geo1_set_random_hmt_basic_attributes_duration_seed offset ( 1.3899999999999999 )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_duration_seed
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_duration_seed
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_duration_seed
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_duration (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_duration = `run("opadd -e -n -v parameter duration")`
+oplocate -x `$arg2 + 8.23733` -y `$arg3 + 4.9916700000000001` $_obj_geo1_set_random_hmt_basic_attributes_duration
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_duration parmname ( duration ) exportparm ( whenconnected ) exportcontext ( cvex ) invisible ( on )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_duration
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_duration
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_duration
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_fit_duration (Vop/fit)
+set _obj_geo1_set_random_hmt_basic_attributes_fit_duration = `run("opadd -e -n -v fit fit_duration")`
+oplocate -x `$arg2 + 5.5814300000000001` -y `$arg3 + 5.2166699999999997` $_obj_geo1_set_random_hmt_basic_attributes_fit_duration
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_fit_duration
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_fit_duration
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_fit_duration
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_min_duration (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_min_duration = `run("opadd -e -n -v parameter min_duration")`
+oplocate -x `$arg2 + 2.9255300000000002` -y `$arg3 + 4.9916700000000001` $_obj_geo1_set_random_hmt_basic_attributes_min_duration
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_min_duration parmname ( min_duration ) parmlabel ( 'Min Duration' ) exportcontext ( cvex )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_min_duration
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_min_duration
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_min_duration
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_max_duration (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_max_duration = `run("opadd -e -n -v parameter max_duration")`
+oplocate -x `$arg2 + 2.9255300000000002` -y `$arg3 + 3.3380700000000001` $_obj_geo1_set_random_hmt_basic_attributes_max_duration
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_max_duration parmname ( max_duration ) parmlabel ( 'Max Duration' ) floatdef ( 2 ) exportcontext ( cvex )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_max_duration
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_max_duration
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_max_duration
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_relbbox1 (Vop/relbbox)
+set _obj_geo1_set_random_hmt_basic_attributes_relbbox1 = `run("opadd -e -n -v relbbox relbbox1")`
+oplocate -x `$arg2 + -5.0421699999999996` -y `$arg3 + -4.64588` $_obj_geo1_set_random_hmt_basic_attributes_relbbox1
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_relbbox1
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_relbbox1
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_relbbox1
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_fit2 (Vop/fit)
+set _obj_geo1_set_random_hmt_basic_attributes_fit2 = `run("opadd -e -n -v fit fit2")`
+oplocate -x `$arg2 + 0.26962599999999998` -y `$arg3 + -6.5253800000000002` $_obj_geo1_set_random_hmt_basic_attributes_fit2
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_fit2
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_fit2
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_fit2
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_vectofloat1 (Vop/vectofloat)
+set _obj_geo1_set_random_hmt_basic_attributes_vectofloat1 = `run("opadd -e -n -v vectofloat vectofloat1")`
+oplocate -x `$arg2 + -2.3862700000000001` -y `$arg3 + -4.64588` $_obj_geo1_set_random_hmt_basic_attributes_vectofloat1
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_vectofloat1
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_vectofloat1
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_vectofloat1
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_min_note (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_min_note = `run("opadd -e -n -v parameter min_note")`
+oplocate -x `$arg2 + -2.3862700000000001` -y `$arg3 + -7.2012799999999997` $_obj_geo1_set_random_hmt_basic_attributes_min_note
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_min_note parmname ( min_note ) parmlabel ( 'Min Note' ) floatdef ( 20 ) exportcontext ( cvex )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_min_note
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_min_note
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_min_note
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_max_note (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_max_note = `run("opadd -e -n -v parameter max_note")`
+oplocate -x `$arg2 + -2.3862700000000001` -y `$arg3 + -8.8548799999999996` $_obj_geo1_set_random_hmt_basic_attributes_max_note
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_max_note parmname ( max_note ) parmlabel ( 'Max Note' ) floatdef ( 100 ) exportcontext ( cvex )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_max_note
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_max_note
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_max_note
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_note (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_note = `run("opadd -e -n -v parameter note")`
+oplocate -x `$arg2 + 8.23733` -y `$arg3 + -6.7503799999999998` $_obj_geo1_set_random_hmt_basic_attributes_note
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_note parmname ( note ) parmtype ( int ) exportparm ( whenconnected ) exportcontext ( cvex ) invisible ( on )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_note
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_note
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_note
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_rint1 (Vop/rint)
+set _obj_geo1_set_random_hmt_basic_attributes_rint1 = `run("opadd -e -n -v rint rint1")`
+oplocate -x `$arg2 + 2.9255300000000002` -y `$arg3 + -6.82538` $_obj_geo1_set_random_hmt_basic_attributes_rint1
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_rint1
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_rint1
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_rint1
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_floattoint1 (Vop/floattoint)
+set _obj_geo1_set_random_hmt_basic_attributes_floattoint1 = `run("opadd -e -n -v floattoint floattoint1")`
+oplocate -x `$arg2 + 5.5814300000000001` -y `$arg3 + -6.82538` $_obj_geo1_set_random_hmt_basic_attributes_floattoint1
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_floattoint1
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_floattoint1
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_floattoint1
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_P (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_P = `run("opadd -e -n -v parameter P")`
+oplocate -x `$arg2 + -7.6980700000000004` -y `$arg3 + -5.5476799999999997` $_obj_geo1_set_random_hmt_basic_attributes_P
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_P parmname ( P ) parmlabel ( P ) parmtype ( float3 ) exportcontext ( cvex ) invisible ( on )
+opcolor -c 0.80000001192092896 0.80000001192092896 0.80000001192092896 $_obj_geo1_set_random_hmt_basic_attributes_P
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F off -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_P
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_P
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_P
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_opinput1 (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_opinput1 = `run("opadd -e -n -v parameter opinput1")`
+oplocate -x `$arg2 + -7.6980700000000004` -y `$arg3 + -3.8940800000000002` $_obj_geo1_set_random_hmt_basic_attributes_opinput1
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_opinput1 parmname ( OpInput1 ) parmlabel ( 'First Input' ) parmtype ( string ) exportcontext ( cvex ) invisible ( on )
+opcolor -c 0.80000001192092896 0.80000001192092896 0.80000001192092896 $_obj_geo1_set_random_hmt_basic_attributes_opinput1
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F off -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_opinput1
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_opinput1
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_opinput1
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_vel_seed (Vop/hmt_internal_rand_seed)
+set _obj_geo1_set_random_hmt_basic_attributes_vel_seed = `run("opadd -e -n -v hmt_internal_rand_seed vel_seed")`
+oplocate -x `$arg2 + 2.9255300000000002` -y `$arg3 + 11.914899999999999` $_obj_geo1_set_random_hmt_basic_attributes_vel_seed
+opparm $_obj_geo1_set_random_hmt_basic_attributes_vel_seed offset ( 2.79 )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_vel_seed
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_vel_seed
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_vel_seed
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_duration1 (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_duration1 = `run("opadd -e -n -v parameter duration1")`
+oplocate -x `$arg2 + 8.23733` -y `$arg3 + 10.2613` $_obj_geo1_set_random_hmt_basic_attributes_duration1
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_duration1 parmname ( vel ) exportparm ( whenconnected ) exportcontext ( cvex ) invisible ( on )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_duration1
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_duration1
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_duration1
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_fit_vel (Vop/fit)
+set _obj_geo1_set_random_hmt_basic_attributes_fit_vel = `run("opadd -e -n -v fit fit_vel")`
+oplocate -x `$arg2 + 5.5814300000000001` -y `$arg3 + 10.4863` $_obj_geo1_set_random_hmt_basic_attributes_fit_vel
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_fit_vel
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_fit_vel
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_fit_vel
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_min_vel (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_min_vel = `run("opadd -e -n -v parameter min_vel")`
+oplocate -x `$arg2 + 2.9255300000000002` -y `$arg3 + 10.2613` $_obj_geo1_set_random_hmt_basic_attributes_min_vel
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_min_vel parmname ( min_vel ) parmlabel ( 'Min Vel' ) floatdef ( 0.050000000000000003 ) exportcontext ( cvex )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_min_vel
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_min_vel
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_min_vel
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_max_vel (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_max_vel = `run("opadd -e -n -v parameter max_vel")`
+oplocate -x `$arg2 + 2.9255300000000002` -y `$arg3 + 8.6077399999999997` $_obj_geo1_set_random_hmt_basic_attributes_max_vel
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_max_vel parmname ( max_vel ) parmlabel ( 'Max Vel' ) floatdef ( 0.80000000000000004 ) exportcontext ( cvex )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_max_vel
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_max_vel
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_max_vel
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_ptnum (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_ptnum = `run("opadd -e -n -v parameter ptnum")`
+oplocate -x `$arg2 + -6.5021599999999999` -y `$arg3 + 12.544600000000001` $_obj_geo1_set_random_hmt_basic_attributes_ptnum
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_ptnum parmname ( ptnum ) parmlabel ( 'Point Number' ) parmtype ( int ) exportcontext ( cvex ) invisible ( on )
+opcolor -c 0.80000001192092896 0.80000001192092896 0.80000001192092896 $_obj_geo1_set_random_hmt_basic_attributes_ptnum
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F off -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_ptnum
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_ptnum
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_ptnum
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_chn_seed (Vop/hmt_internal_rand_seed)
+set _obj_geo1_set_random_hmt_basic_attributes_chn_seed = `run("opadd -e -n -v hmt_internal_rand_seed chn_seed")`
+oplocate -x `$arg2 + -2.3862700000000001` -y `$arg3 + 1.3755900000000001` $_obj_geo1_set_random_hmt_basic_attributes_chn_seed
+opparm $_obj_geo1_set_random_hmt_basic_attributes_chn_seed offset ( 6.0099999999999998 )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_chn_seed
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_chn_seed
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_chn_seed
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_duration2 (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_duration2 = `run("opadd -e -n -v parameter duration2")`
+oplocate -x `$arg2 + 8.23733` -y `$arg3 + -0.27800799999999998` $_obj_geo1_set_random_hmt_basic_attributes_duration2
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_duration2 parmname ( channel ) parmtype ( int ) exportparm ( whenconnected ) exportcontext ( cvex ) invisible ( on )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_duration2
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_duration2
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_duration2
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_fit_channel (Vop/fit)
+set _obj_geo1_set_random_hmt_basic_attributes_fit_channel = `run("opadd -e -n -v fit fit_channel")`
+oplocate -x `$arg2 + 0.26962599999999998` -y `$arg3 + -0.053007899999999997` $_obj_geo1_set_random_hmt_basic_attributes_fit_channel
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_fit_channel
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_fit_channel
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_fit_channel
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_min_vel1 (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_min_vel1 = `run("opadd -e -n -v parameter min_vel1")`
+oplocate -x `$arg2 + -2.3862700000000001` -y `$arg3 + -0.27800799999999998` $_obj_geo1_set_random_hmt_basic_attributes_min_vel1
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_min_vel1 parmname ( min_channel ) parmlabel ( 'Min Channel' ) parmtype ( int ) intdef ( 1 ) exportcontext ( cvex )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_min_vel1
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_min_vel1
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_min_vel1
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_max_channel (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_max_channel = `run("opadd -e -n -v parameter max_channel")`
+oplocate -x `$arg2 + -2.3862700000000001` -y `$arg3 + -1.93161` $_obj_geo1_set_random_hmt_basic_attributes_max_channel
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_max_channel parmname ( max_channel ) parmlabel ( 'Max Channel' ) parmtype ( int ) floatdef ( 1 ) intdef ( 5 ) exportcontext ( cvex )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_max_channel
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_max_channel
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_max_channel
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_rint2 (Vop/rint)
+set _obj_geo1_set_random_hmt_basic_attributes_rint2 = `run("opadd -e -n -v rint rint2")`
+oplocate -x `$arg2 + 2.9255300000000002` -y `$arg3 + -0.35300799999999999` $_obj_geo1_set_random_hmt_basic_attributes_rint2
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_rint2
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_rint2
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_rint2
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_floattoint2 (Vop/floattoint)
+set _obj_geo1_set_random_hmt_basic_attributes_floattoint2 = `run("opadd -e -n -v floattoint floattoint2")`
+oplocate -x `$arg2 + 5.5814300000000001` -y `$arg3 + -0.35300799999999999` $_obj_geo1_set_random_hmt_basic_attributes_floattoint2
+opset -d on -r on -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_floattoint2
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_floattoint2
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_floattoint2
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_time (Vop/parameter)
+set _obj_geo1_set_random_hmt_basic_attributes_time = `run("opadd -e -n -v parameter time")`
+oplocate -x `$arg2 + 8.23733` -y `$arg3 + -10.8924` $_obj_geo1_set_random_hmt_basic_attributes_time
+opparm -V 18.0.287 $_obj_geo1_set_random_hmt_basic_attributes_time parmname ( time ) exportparm ( whenconnected ) exportcontext ( cvex ) invisible ( on )
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_time
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_time
+opuserdata -n '___Version___' -v '18.0.287' $_obj_geo1_set_random_hmt_basic_attributes_time
+
+# Node $_obj_geo1_set_random_hmt_basic_attributes_P_x (Vop/vectofloat)
+set _obj_geo1_set_random_hmt_basic_attributes_P_x = `run("opadd -e -n -v vectofloat P_x")`
+oplocate -x `$arg2 + 5.5814300000000001` -y `$arg3 + -10.817399999999999` $_obj_geo1_set_random_hmt_basic_attributes_P_x
+opset -d off -r off -h off -f off -y off -t off -l off -s off -u off -F on -c on -e on -b off -L off -M off -H on -E off $_obj_geo1_set_random_hmt_basic_attributes_P_x
+opexprlanguage -s hscript $_obj_geo1_set_random_hmt_basic_attributes_P_x
+opuserdata -n '___Version___' -v '' $_obj_geo1_set_random_hmt_basic_attributes_P_x
+opcf ..
+opcf $_obj_geo1_set_random_hmt_basic_attributes
+oporder -e duration_seed duration fit_duration min_duration max_duration relbbox1 fit2 vectofloat1 min_note max_note note rint1 floattoint1 P opinput1 vel_seed duration1 fit_vel min_vel max_vel ptnum chn_seed duration2 fit_channel min_vel1 max_channel rint2 floattoint2 time P_x 
+opcf ..
+opset -p on $_obj_geo1_set_random_hmt_basic_attributes
+
+opcf $arg1
+opcf $arg1
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes -0 $_obj_geo1_viz
+opcf $arg1
+opwire -n $_obj_geo1_grid -0 $_obj_geo1_scatter
+opcf $arg1
+opwire -n $_obj_geo1_viz -0 $_obj_geo1_OUTPUT_midi
+opcf $arg1
+opwire -n -o 1 $_obj_geo1_OUTPUT_midi -0 $_obj_geo1_playbar
+opcf $arg1
+opwire -n $_obj_geo1_scatter -0 $_obj_geo1_set_random_hmt_basic_attributes
+opcf $_obj_geo1_set_random_hmt_basic_attributes
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_ptnum -0 $_obj_geo1_set_random_hmt_basic_attributes_duration_seed
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_fit_duration -0 $_obj_geo1_set_random_hmt_basic_attributes_duration
+opwire -n -o 1 $_obj_geo1_set_random_hmt_basic_attributes_duration_seed -0 $_obj_geo1_set_random_hmt_basic_attributes_fit_duration
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_min_duration -3 $_obj_geo1_set_random_hmt_basic_attributes_fit_duration
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_max_duration -4 $_obj_geo1_set_random_hmt_basic_attributes_fit_duration
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_opinput1 -0 $_obj_geo1_set_random_hmt_basic_attributes_relbbox1
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_P -2 $_obj_geo1_set_random_hmt_basic_attributes_relbbox1
+opwire -n -o 1 $_obj_geo1_set_random_hmt_basic_attributes_vectofloat1 -0 $_obj_geo1_set_random_hmt_basic_attributes_fit2
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_min_note -3 $_obj_geo1_set_random_hmt_basic_attributes_fit2
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_max_note -4 $_obj_geo1_set_random_hmt_basic_attributes_fit2
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_relbbox1 -0 $_obj_geo1_set_random_hmt_basic_attributes_vectofloat1
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_floattoint1 -0 $_obj_geo1_set_random_hmt_basic_attributes_note
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_fit2 -0 $_obj_geo1_set_random_hmt_basic_attributes_rint1
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_rint1 -0 $_obj_geo1_set_random_hmt_basic_attributes_floattoint1
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_ptnum -0 $_obj_geo1_set_random_hmt_basic_attributes_vel_seed
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_fit_vel -0 $_obj_geo1_set_random_hmt_basic_attributes_duration1
+opwire -n -o 1 $_obj_geo1_set_random_hmt_basic_attributes_vel_seed -0 $_obj_geo1_set_random_hmt_basic_attributes_fit_vel
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_min_vel -3 $_obj_geo1_set_random_hmt_basic_attributes_fit_vel
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_max_vel -4 $_obj_geo1_set_random_hmt_basic_attributes_fit_vel
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_ptnum -0 $_obj_geo1_set_random_hmt_basic_attributes_chn_seed
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_floattoint2 -0 $_obj_geo1_set_random_hmt_basic_attributes_duration2
+opwire -n -o 1 $_obj_geo1_set_random_hmt_basic_attributes_chn_seed -0 $_obj_geo1_set_random_hmt_basic_attributes_fit_channel
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_min_vel1 -3 $_obj_geo1_set_random_hmt_basic_attributes_fit_channel
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_max_channel -4 $_obj_geo1_set_random_hmt_basic_attributes_fit_channel
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_fit_channel -0 $_obj_geo1_set_random_hmt_basic_attributes_rint2
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_rint2 -0 $_obj_geo1_set_random_hmt_basic_attributes_floattoint2
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_P_x -0 $_obj_geo1_set_random_hmt_basic_attributes_time
+opwire -n $_obj_geo1_set_random_hmt_basic_attributes_P -0 $_obj_geo1_set_random_hmt_basic_attributes_P_x
+opcf ..
+
+set oidx = 0
+if ($argc >= 9 && "$arg9" != "") then
+    set oidx = $arg9
+endif
+
+if ($argc >= 5 && "$arg4" != "") then
+    set output = $_obj_geo1_set_random_hmt_basic_attributes
+    opwire -n $output -$arg5 $arg4
+endif
+if ($argc >= 6 && "$arg6" != "") then
+    set input = $_obj_geo1_grid
     if ($arg8) then
         opwire -n -i $arg6 -0 $input
     else
