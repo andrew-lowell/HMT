@@ -33,7 +33,7 @@ For more detailed examples, see the [provided examples](https://github.com/andre
 
 ### Technical Specifications:
 
-Point attributes needed for the proper funtionality of HMT:
+Point attributes needed for the proper functionality of HMT:
 * `f@time`: The time the MIDI note occurs in seconds
 * `i@note`: The pitch of the note in MIDI values (`0-127`)
 * `f@vel`: The MIDI velocity of the note, represented in values from `0.0-1.0` (for `0-127`)
@@ -50,7 +50,7 @@ Point attributes which are optional for output but needed in some HMT workflows:
 * `i@note_octave`: The octave on the common MIDI keyboard when dealing with mode progressions
 * `i@mode`: The mode index from `0-7`
 * `i@mode_progression`: The modal progression of the notes contained within an octave in values from `0-7`. `0` being the root note. When numbers go beyond this value they will progress into the next or previous octave
-* `i@minor_type`: The minor style of the Aolean mode common in western minor scales. `0-2` represent Natural, Harmonic, and Melodic types.
+* `i@minor_type`: The minor style of the Aeolian mode common in western minor scales. `0-2` represent Natural, Harmonic, and Melodic types.
 
 Point attributes used for visualization:
 * `v@P`: The time(x) and note(y) of the notes
