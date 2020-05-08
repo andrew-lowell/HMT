@@ -25,11 +25,11 @@ Shelf Tools
 ### Technical Specifications:
 
 Point attributes needed for the proper funtionality of HMT:
-* f@time: The time the MIDI note occurs in seconds
-* i@note: The pitch of the note in MIDI values (0-127)
-* f@vel: The MIDI velocity of the note, represented in values from 0.0-1.0 (for 0-127)
-* f@duration: The duration of the note in seconds
-* i@channel: The MIDI channel output of the note, often in a range of 1-16
+* `f@time`: The time the MIDI note occurs in seconds
+* `i@note`: The pitch of the note in MIDI values (0-127)
+* `f@vel`: The MIDI velocity of the note, represented in values from 0.0-1.0 (for 0-127)
+* `f@duration`: The duration of the note in seconds
+* `i@channel`: The MIDI channel output of the note, often in a range of 1-16
 
 Point attributes used for workability in HMT:
 * s@note_letter: The commonplace keyboard letter assignment of the note
