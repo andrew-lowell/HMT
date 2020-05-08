@@ -9,6 +9,8 @@ HMT makes use of Houdini's powerful geometry and simulation processing in a set 
 
 Because of the modular and node based nature of the toolset present in HMT, and that it adheres when possible to existing Houdini conventions, it allows users to easily develop their own workflows and tools for music creation or processing.
 
+* * * * *
+
 ### Installation:
 
 Download the desired release directly from the [releases page](https://github.com/andrew-lowell/HMT/releases) and extract it to your hard drive or network share.
@@ -21,6 +23,8 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 
 **[Supplementary Software](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md)**
 
+* * * * *
+
 ### Usage basics:
 ***Tutorial Links***
 
@@ -31,11 +35,17 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 
 For more detailed examples, see the [provided examples](https://github.com/andrew-lowell/HMT/tree/master/examples) folder for Houdini (.hip) files.
 
+* * * * *
+
 ### Technical Specifications:
 [Geometry attributes used by HMT](https://github.com/andrew-lowell/HMT/blob/master/ATTRIBUTE_SPECS.md)
 
+* * * * *
+
 ### Developers:
 **HMT (Houdini Music Toolset)** is developed and maintained by ***Andrew Lowell***. 
+
+* * * * *
 
 ### Notice:
 This software is provided AS-IS, with absolutely no warranty of any kind, express or otherwise. We disclaim any liability for damages resulting from using this software.
