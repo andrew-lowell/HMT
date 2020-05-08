@@ -26,7 +26,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 
 
 ### Usage basics:
-Tutorial Links
+Tutorial Links\
 Shelf Tools
 
 For more detailed examples, see the [provided examples](https://github.com/andrew-lowell/HMT/tree/master/examples) folder for Houdini (.hip) files.
