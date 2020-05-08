@@ -13,8 +13,6 @@ Because of the modular and node based nature of the toolset present in HMT, and 
 
 Download the desired release directly from the [releases page](https://github.com/andrew-lowell/HMT/releases) and extract it to your hard drive or network share.
 
-## Configuring your Environment
-
 **Plugin (17.5+ only)**
 Create a folder inside your Houdini preferences directory (where the houdini.env typically lives) called "packages", and place the HMT.json file from the HMT download into that folder. Then edit HMT.json and change the "HMT" variable to match the install path.
 
