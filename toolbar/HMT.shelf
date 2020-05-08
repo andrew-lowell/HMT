@@ -6,8 +6,9 @@
  a single file. -->
 
   <toolshelf name="HMT" label="Music Toolset (HMT)">
-    <memberTool name="mode_progression"/>
+    <memberTool name="MIDI_IO_setup"/>
     <memberTool name="random_notes"/>
+    <memberTool name="mode_progression"/>
   </toolshelf>
 
   <tool name="HMT_updater" label="HMT Updater" icon="PLASMA_App">
