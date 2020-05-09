@@ -24,8 +24,8 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 
 * * * * *
 ### Workflows:
-**[Software Connectivity Flowchart](https://github.com/andrew-lowell/HMT/blob/master/hmt_workflows.pdf)**
-**[Supplementary Software](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md)**
+* **[Software Connectivity Flowchart](https://github.com/andrew-lowell/HMT/blob/master/hmt_workflows.pdf)**
+* **[Supplementary Software](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md)**
 
 
 * * * * *
