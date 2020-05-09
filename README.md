@@ -24,6 +24,10 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 **[Supplementary Software](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md)**
 
 * * * * *
+### Workflows:
+![hmt_workflows](https://github.com/andrew-lowell/HMT/blob/master/HMT Workflows.pdf)
+
+* * * * *
 
 ### Usage basics:
 ***Tutorial Links***
