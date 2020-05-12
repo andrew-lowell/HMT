@@ -34,6 +34,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 ***Tutorial Links***
 * **[00 Sound Check](https://vimeo.com/416777838/0fd198367a)**
 * **[01 Simple Note](https://vimeo.com/416991416/ce039a640a)**
+* **[02 Note Patterns](https://vimeo.com/417402929/5641115d20)**
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
