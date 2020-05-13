@@ -9,6 +9,7 @@
 * `s@note_letter`: The commonplace keyboard letter assignment of the note
 * `s@mode_name`: The name of the mode corresponding with the `i@mode` attribute
 * `f@pan`: An optional attribute for more flexible panning workflows
+* `i@melody_id`: An optional attribute used in the note-spline and doppler workflows for per melody processing
 
 **Point attributes** which are optional for output but ***needed in some HMT workflows***:
 * `i@base_note`: The key or modal starting point, for instance "The key of Ab Minor." Represented in MIDI note values (`0-127`)
