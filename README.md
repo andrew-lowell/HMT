@@ -41,7 +41,15 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[06 Pitch Setup](https://vimeo.com/419194847/4fbf7f4a63)**
 * **[07 Duration Setup](https://vimeo.com/419451031/f14a24291a)**
 * **08 Panning Setup**
-
+* **09 Velocity Setup**
+* **10 Timing Distortion**
+* **11 Velocity Impulse**
+* **12 Modal Setup**
+* **13 Modal Assignment**
+* **14 Velocity Impact**
+* **15 Velocity Distance**
+* **16 Doppler Setup**
+* **17 Doppler Application**
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
