@@ -42,7 +42,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[07 Duration Setup](https://vimeo.com/419451031/f14a24291a)**
 * **[08 Panning Setup](https://vimeo.com/420559800/bc32c908e5)**
 * **[09 Velocity Setup](https://vimeo.com/420579796/589035a1a0)**
-* **10 Timing Distortion**
+* **[10 Timing Distortion](https://vimeo.com/421363770/237feecce3)**
 * **11 Velocity Impulse**
 * **12 Modal Setup**
 * **13 Modal Assignment**
