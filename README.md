@@ -44,7 +44,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[09 Velocity Setup](https://vimeo.com/420579796/589035a1a0)**
 * **[10 Timing Distortion](https://vimeo.com/421363770/237feecce3)**
 * **[11 Velocity Impulse](https://vimeo.com/422014745/f2e11f5794)**
-* **12 Modal Setup**
+* **[12 Modal Setup](https://vimeo.com/424223637/36ab669554)**
 * **13 Modal Assignment**
 * **14 Velocity Impact**
 * **15 Velocity Distance**
