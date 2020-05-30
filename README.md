@@ -54,7 +54,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
 * **Random Notes**: This setup is useful to observe the necessary point attributes being assigned manually then output through a live MIDI channel.
-* **Mode Progression**: The mode progression setup is useful because there is a certain order of operations and mode attributes necessary upstream to produce the `i@note` attribute downstream. First the mode attributes are assigned based on common mode, octave, and base note. Then the final `i@note` attribute is computed and output through a live MIDI channel.
+* **Mode Progression**: The mode progression setup is useful because there is a certain order of operations and mode attributes necessary upstream to produce the `i@note` attribute downstream. First the mode attributes are assigned based on common mode, octave, base note, and mode progression. Then the final `i@note` attribute is computed and output through a live MIDI channel.
 * **Sound Check**: This will create test spacial MIDI composition with visualization and play it back through a live MIDI channel (Windows only).
 
 For more detailed examples, see the [provided examples](https://github.com/andrew-lowell/HMT/tree/master/examples) folder for Houdini (.hip) files.
