@@ -48,7 +48,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[13 Modal Assignment](https://vimeo.com/424411732/a4d7c11f24)**
 * **[14 Velocity Impact](https://vimeo.com/424437612/279d02073b)**
 * **[15 Velocity Distance](https://vimeo.com/424655810/4deb2c0a2b)**
-* **16 Doppler Setup**
+* **[16 Doppler Setup](https://vimeo.com/424996327/24b7f7e83a)**
 * **17 Doppler Application**
 
 ***Shelf Tools***
