@@ -49,7 +49,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[14 Velocity Impact](https://vimeo.com/424437612/279d02073b)**
 * **[15 Velocity Distance](https://vimeo.com/424655810/4deb2c0a2b)**
 * **[16 Doppler Setup](https://vimeo.com/424996327/24b7f7e83a)**
-* **[16 17 Doppler Application](https://vimeo.com/425016788/2a2b974590)**
+* **[17 Doppler Application](https://vimeo.com/425016788/2a2b974590)**
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
