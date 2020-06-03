@@ -15,6 +15,8 @@ Because of the modular and node based nature of the toolset present in HMT, and 
 
 Download the desired release directly from the [releases page](https://github.com/andrew-lowell/HMT/releases) and extract it to your hard drive or network share.
 
+This toolset does not produce sound, it sends MIDI data to an audio application or MIDI file. Most professional or popular music programs will support a MIDI port which can be used to then trigger live sound and instruments.
+
 **Plugin (17.5+ only)**
 Create a folder inside your Houdini preferences directory (where the houdini.env typically lives) called "packages", and place the HMT.json file from the HMT download into that folder. Then edit HMT.json and change the "HMT" variable to match the install path.
 
@@ -32,7 +34,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 
 ### Usage basics:
 ***Tutorial Links***
-* **[00 Sound Check](https://vimeo.com/416777838/0fd198367a)**
+* **[00 Installation and Sound Check](https://vimeo.com/416777838/0fd198367a)**
 * **[01 Simple Note](https://vimeo.com/416991416/ce039a640a)**
 * **[02 Note Patterns](https://vimeo.com/417402929/5641115d20)**
 * **[03 MIDI IO](https://vimeo.com/417931944/cf73e3c470)**
