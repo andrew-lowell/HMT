@@ -15,11 +15,10 @@ Because of the modular and node based nature of the toolset present in HMT, and 
 
 Download the desired release directly from the [releases page](https://github.com/andrew-lowell/HMT/releases) and extract it to your hard drive or network share.
 
-***This toolset does not produce sound,*** it acts as a sequencer and sends MIDI data to an audio application or MIDI file. Most professional or popular music programs will support a MIDI port which can be used to then trigger real-time sound and instruments. See the [supplementary software page](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md) for more on getting your system up and running.
-
-
 **Plugin (17.5+ only)**
 Create a folder inside your Houdini preferences directory (where the houdini.env typically lives) called "packages", and place the HMT.json file from the HMT download into that folder. Then edit HMT.json and change the "HMT" variable to match the install path.
+
+***This toolset does not produce sound,*** it acts as a sequencer and sends MIDI data to an audio application or MIDI file. Most professional or popular music programs will support a MIDI port which can be used to then trigger real-time sound and instruments. See the [supplementary software page](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md) for more on getting your system up and running.
 
 **OS Support (Full functionality Windows only)**
 While the toolset is based entirely in Houdini and will perform it's sequencing functions regardless of operating system, the MIDI Output CHOP will only perform live/real-time export to a MIDI channel on the Windows operating system. When Apple/Linux are supported this page will be updated. Exporting to MIDI files is supported on all operating systems.
