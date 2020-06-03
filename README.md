@@ -15,7 +15,7 @@ Because of the modular and node based nature of the toolset present in HMT, and 
 
 Download the desired release directly from the [releases page](https://github.com/andrew-lowell/HMT/releases) and extract it to your hard drive or network share.
 
-***This toolset does not produce sound,*** it acts as a sequencer and sends MIDI data to an audio application or MIDI file. Most professional or popular music programs will support a MIDI port which can be used to then trigger real-time sound and instruments. See the [Supplementary Software](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md) for more on getting your system up and running.
+***This toolset does not produce sound,*** it acts as a sequencer and sends MIDI data to an audio application or MIDI file. Most professional or popular music programs will support a MIDI port which can be used to then trigger real-time sound and instruments. See the [supplementary software page](https://github.com/andrew-lowell/HMT/blob/master/SOFTWARE_LINKS.md) for more on getting your system up and running.
 
 
 **Plugin (17.5+ only)**
