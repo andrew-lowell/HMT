@@ -40,21 +40,21 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[00 Installation and Sound Check](https://vimeo.com/416777838/0fd198367a)**
 * **[01 Simple Note](https://vimeo.com/416991416/ce039a640a)**
 * **02 Note Patterns** ***(Coming soon)***
-* **03 MIDI IO** ***Coming soon***
-* **04 Time Adjustment** ***Coming soon***
-* **05 Timing Setup** ***Coming soon***
-* **06 Pitch Setup** ***Coming soon***
-* **07 Duration Setup** ***Coming soon***
-* **08 Panning Setup** ***Coming soon***
-* **09 Velocity Setup** ***Coming soon***
-* **10 Timing Distortion** ***Coming soon***
-* **11 Velocity Impulse** ***Coming soon***
-* **12 Modal Setup** ***Coming soon***
-* **13 Modal Assignment** ***Coming soon***
-* **14 Velocity Impact** ***Coming soon***
-* **15 Velocity Distance** ***Coming soon***
-* **16 Doppler Setup** ***Coming soon***
-* **17 Doppler Application** ***Coming soon***
+* **03 MIDI IO** ***(Coming soon)***
+* **04 Time Adjustment** ***(Coming soon)***
+* **05 Timing Setup** ***(Coming soon)***
+* **06 Pitch Setup** ***(Coming soon)***
+* **07 Duration Setup** ***(Coming soon)***
+* **08 Panning Setup** ***(Coming soon)***
+* **09 Velocity Setup** ***(Coming soon)***
+* **10 Timing Distortion** ***(Coming soon)***
+* **11 Velocity Impulse** ***(Coming soon)***
+* **12 Modal Setup** ***(Coming soon)***
+* **13 Modal Assignment** ***(Coming soon)***
+* **14 Velocity Impact** ***(Coming soon)***
+* **15 Velocity Distance** ***(Coming soon)***
+* **16 Doppler Setup** ***(Coming soon)***
+* **17 Doppler Application** ***(Coming soon)***
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
