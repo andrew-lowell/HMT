@@ -39,22 +39,22 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 ***Tutorial Links***
 * **[00 Installation and Sound Check](https://vimeo.com/416777838/0fd198367a)**
 * **[01 Simple Note](https://vimeo.com/416991416/ce039a640a)**
-* **[02 Note Patterns](https://vimeo.com/417402929/5641115d20)**
-* **[03 MIDI IO](https://vimeo.com/417931944/cf73e3c470)**
-* **[04 Time Adjustment](https://vimeo.com/417932182/136981fe15)**
-* **[05 Timing Setup](https://vimeo.com/419194667/45c7c1920a)**
-* **[06 Pitch Setup](https://vimeo.com/419194847/4fbf7f4a63)**
-* **[07 Duration Setup](https://vimeo.com/419451031/f14a24291a)**
-* **[08 Panning Setup](https://vimeo.com/420559800/bc32c908e5)**
-* **[09 Velocity Setup](https://vimeo.com/420579796/589035a1a0)**
-* **[10 Timing Distortion](https://vimeo.com/421363770/237feecce3)**
-* **[11 Velocity Impulse](https://vimeo.com/422014745/f2e11f5794)**
-* **[12 Modal Setup](https://vimeo.com/424223637/36ab669554)**
-* **[13 Modal Assignment](https://vimeo.com/424411732/a4d7c11f24)**
-* **[14 Velocity Impact](https://vimeo.com/424437612/279d02073b)**
-* **[15 Velocity Distance](https://vimeo.com/424655810/4deb2c0a2b)**
-* **[16 Doppler Setup](https://vimeo.com/424996327/24b7f7e83a)**
-* **[17 Doppler Application](https://vimeo.com/425016788/2a2b974590)**
+* **02 Note Patterns** ***Coming soon***
+* **03 MIDI IO** ***Coming soon***
+* **04 Time Adjustment** ***Coming soon***
+* **05 Timing Setup** ***Coming soon***
+* **06 Pitch Setup** ***Coming soon***
+* **07 Duration Setup** ***Coming soon***
+* **08 Panning Setup** ***Coming soon***
+* **09 Velocity Setup** ***Coming soon***
+* **10 Timing Distortion** ***Coming soon***
+* **11 Velocity Impulse** ***Coming soon***
+* **12 Modal Setup** ***Coming soon***
+* **13 Modal Assignment** ***Coming soon***
+* **14 Velocity Impact** ***Coming soon***
+* **15 Velocity Distance** ***Coming soon***
+* **16 Doppler Setup** ***Coming soon***
+* **17 Doppler Application** ***Coming soon***
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
