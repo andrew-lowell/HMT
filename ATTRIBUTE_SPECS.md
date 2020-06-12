@@ -18,6 +18,7 @@
 * `i@minor_type`: The minor style of the Aeolian mode common in western minor scales. `0-2` represent Natural, Harmonic, and Melodic types.
 * `i@melody_id`: An attribute used in the note-spline and doppler workflows for per melody processing
 * `i@note_id`: An attribute used in the doppler workflows for per note tracking and processing
+* `s@chord`: An attribute used in the chord workflow for per input-note chord propagation
 
 **Point attributes** used for ***visualization***:
 * `v@P`: The time(x) and note(y) of the notes
