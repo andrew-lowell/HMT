@@ -37,10 +37,10 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[Introduction and Demonstration](https://vimeo.com/425382356/a4a52d71c1)**
 
 ***Tutorial Links***
-* **[00 Installation and Sound Check](https://vimeo.com/416777838/0fd198367a)**
-* **[01 Simple Note](https://vimeo.com/416991416/ce039a640a)**
-* **02 Note Patterns** ***(Coming soon)***
-* **03 Chords** ***(Coming soon)***
+* **[00 Installation and Sound Check](https://vimeo.com/416777838)**
+* **[01 Simple Note](https://vimeo.com/416991416)**
+* **[02 Note Patterns](https://vimeo.com/417402929)**
+* **[03 Chords](https://vimeo.com/428397014)**
 * **04 MIDI IO** ***(Coming soon)***
 * **05 Time Adjustment** ***(Coming soon)***
 * **06 Timing Setup** ***(Coming soon)***
