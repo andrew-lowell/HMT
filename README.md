@@ -40,6 +40,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[00 Installation and Sound Check](https://vimeo.com/416777838/0fd198367a)**
 * **[01 Simple Note](https://vimeo.com/416991416/ce039a640a)**
 * **02 Note Patterns** ***(Coming soon)***
+* **03 Chords** ***(Coming soon)***
 * **04 MIDI IO** ***(Coming soon)***
 * **05 Time Adjustment** ***(Coming soon)***
 * **06 Timing Setup** ***(Coming soon)***
@@ -72,7 +73,7 @@ For more detailed examples, see the [provided examples](https://github.com/andre
 * * * * *
 
 ### Developers:
-**HMT (Houdini Music Toolset)** is developed and maintained by ***Andrew Lowell***. 
+**HMT (Houdini Music Toolset)** is developed and maintained by ***Andrew Lowell***. Additional contributions by Adam Katz
 
 * * * * *
 
