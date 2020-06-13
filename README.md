@@ -75,7 +75,7 @@ For more detailed examples, see the [provided examples](https://github.com/andre
 ### Developers:
 **HMT (Houdini Music Toolset)** is developed and maintained by ***Andrew Lowell***.
 
-Additional contributions by Adam Katz
+Additional contributions by Adam Katz, Sujil Sukumaran
 
 * * * * *
 
