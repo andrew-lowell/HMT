@@ -42,7 +42,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[02 Note Patterns](https://vimeo.com/417402929)**
 * **[03 Chords](https://vimeo.com/428397014)**
 * **[04 MIDI IO](https://vimeo.com/417931944)**
-* **05 Time Adjustment** ***(Coming soon)***
+* **[05 Time Adjustment](https://vimeo.com/417932182)**
 * **06 Timing Setup** ***(Coming soon)***
 * **07 Pitch Setup** ***(Coming soon)***
 * **08 Duration Setup** ***(Coming soon)***
