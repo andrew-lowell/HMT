@@ -43,11 +43,11 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[03 Chords](https://vimeo.com/428397014)**
 * **[04 MIDI IO](https://vimeo.com/417931944)**
 * **[05 Time Adjustment](https://vimeo.com/417932182)**
-* **06 Timing Setup** ***(Coming soon)***
-* **07 Pitch Setup** ***(Coming soon)***
-* **08 Duration Setup** ***(Coming soon)***
-* **09 Panning Setup** ***(Coming soon)***
-* **10 Velocity Setup** ***(Coming soon)***
+* **[06 Timing Setup](https://vimeo.com/419194667)**
+* **[07 Pitch Setup](https://vimeo.com/419194847)**
+* **[08 Duration Setup](https://vimeo.com/419451031)**
+* **[09 Panning Setup](https://vimeo.com/420559800)**
+* **[10 Velocity Setup](https://vimeo.com/420579796)**
 * **11 Timing Distortion** ***(Coming soon)***
 * **12 Velocity Impulse** ***(Coming soon)***
 * **13 Modal Setup** ***(Coming soon)***
