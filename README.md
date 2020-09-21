@@ -57,6 +57,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[17 Doppler Setup](https://vimeo.com/424996327)**
 * **[18 Doppler Application](https://vimeo.com/425016788)**
 * **[19 Drum Loops](https://vimeo.com/437284890)** ***(User Tutorial)***
+* **[20 Note Editing](https://vimeo.com/460053769)**
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
