@@ -4,7 +4,9 @@ HMT
 ![HMT logo](https://github.com/andrew-lowell/HMT/blob/master/hmt_logo_01.png)
 
 **Houdini Music Toolset**, extends the users' capabilities into the domain of music composition.
-**[HMT 1.0 Demonstration](https://vimeo.com/425382356/a4a52d71c1)**, 
+
+**[HMT 1.0 Demonstration](https://vimeo.com/425382356/a4a52d71c1)**
+
 **[HMT 2.0 Demonstration](https://vimeo.com/536214871)**
 
 HMT makes use of Houdini's powerful geometry and simulation processing in a set of new tools and workflows specifically designed for music. It uses point clouds and attributes within the graphical 3D environment to perform sequencing tasks present in music composition packages. It uses CHOPs as a back-end to import or export MIDI file data either to the midi file format, or directly to a MIDI port. It allows for artists or composers to make use of powerful simulation tools and Houdini's open node-based architecture normally dedicated to producing photorealistic simulations of natural phenomenon and apply the same tools if desired to manipulating or generating patterns of notes.
