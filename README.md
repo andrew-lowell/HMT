@@ -60,8 +60,8 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[18 Doppler Application](https://vimeo.com/425016788)**
 * **[19 Drum Loops](https://vimeo.com/437284890)** ***(User Tutorial)***
 * **[20 Note Editing](https://vimeo.com/460053769)**
-* **[21 New Features in HMT 2.0]**
-* **[22 Controller Channel I/O]**
+* **21 New Features in HMT 2.0**
+* **22 Controller Channel I/O**
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
@@ -75,6 +75,7 @@ For more detailed examples, see the [provided examples](https://github.com/andre
 
 ### Technical Specifications:
 [Geometry attributes used by HMT](https://github.com/andrew-lowell/HMT/blob/master/ATTRIBUTE_SPECS.md)
+[VEX variables used by HMT controller channel nodes](https://github.com/andrew-lowell/HMT/blob/master/CONTROLLER_CHANNEL_SPECS.md)
 
 * * * * *
 
