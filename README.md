@@ -74,8 +74,8 @@ For more detailed examples, see the [provided examples](https://github.com/andre
 * * * * *
 
 ### Technical Specifications:
-[Geometry attributes used by HMT](https://github.com/andrew-lowell/HMT/blob/master/ATTRIBUTE_SPECS.md)
-[VEX variables used by HMT controller channel nodes](https://github.com/andrew-lowell/HMT/blob/master/CONTROLLER_CHANNEL_SPECS.md)
+* [Geometry attributes used by HMT](https://github.com/andrew-lowell/HMT/blob/master/ATTRIBUTE_SPECS.md)
+* [VEX variables used by HMT controller channel nodes](https://github.com/andrew-lowell/HMT/blob/master/CONTROLLER_CHANNEL_SPECS.md)
 
 * * * * *
 
