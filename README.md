@@ -62,6 +62,16 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[20 Note Editing](https://vimeo.com/460053769)**
 * **21 New Features in HMT 2.0**
 * **22 Controller Channel I/O**
+* **23 Controller Conversion and Resampling**
+* **24 Controller Duplication**
+* **25 Controller Example: Particle Position**
+* **26 Exacting Controller Functions**
+* **27 Controller Shaping**
+* **28 Controller Timing**
+* **29 Controller Triggering**
+* **30 Controller Example: Rotating Cube**
+* **31 Controller Example: Color/Tone Blending**
+* **32 Controller Example: Orbital**
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
