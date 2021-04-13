@@ -34,7 +34,8 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * * * * *
 
 ### Usage basics:
-* **[Introduction and Demonstration](https://vimeo.com/425382356/a4a52d71c1)**
+* **[Version 1 Introduction and Demonstration](https://vimeo.com/425382356/a4a52d71c1)**
+* **[Version 2 Introduction and Demonstration](https://vimeo.com/536214871/d882b384ac)**
 
 ***Tutorial Links***
 * **[00 Installation and Sound Check](https://vimeo.com/416777838)**
