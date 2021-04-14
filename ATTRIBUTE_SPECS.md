@@ -12,7 +12,7 @@
 * `i@controller_channel`: The controller channel designation of the controller, often in a range of `0-127`
 * `s@controller_channel_format`: Either `anim` or `ramp` The ramp format stores key positions, values, and interpolation type. The anim format stores evenly spaced values.
 * `s@controller`: The controller channel data.
-Either the `ramp` format `k.kk k.kk k.kk: v.vv v.vv v.vv: interp interp interp` or the `anim` format `v.vv v.vv v.vv v.vv v.vv`
+Either the `ramp` format `key key key: value value value: interp interp interp` or the `anim` format `value value value value value`
 * `f@sample_rate`: The sample rate of the controller. It's either a samples-per-second rate for the `anim` format or -1 for the `ramp` format.
 * `s@controller_name`: The controller channel name or label. While this attribute is note required for final output it is used extensivly in the functionality of many controller channel nodes.
 
