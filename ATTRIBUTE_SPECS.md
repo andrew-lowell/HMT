@@ -1,9 +1,20 @@
-**Point attributes** needed for the proper ***functionality*** of HMT:
+**Point attributes** needed for the proper ***functionality*** of notes in HMT:
 * `f@time`: The time the MIDI note occurs in seconds
 * `i@note`: The pitch of the note in MIDI values (`0-127`)
 * `f@vel`: The MIDI velocity of the note, represented in values from `0.0-1.0` (for `0-127`)
 * `f@duration`: The duration of the note in seconds
 * `i@channel`: The MIDI channel output of the note, often in a range of `1-16`
+
+**Point attributes** needed for the proper ***functionality*** of controllers in HMT:
+* `f@time`: The start time of the controller animation in seconds
+* `f@duration`: The duration of the controller animation in seconds
+* `i@channel`: The MIDI channel of the controller, often in a range of `1-16`
+* `i@controller_channel`: The controller channel designation of the controller, often in a range of `0-127`
+* `s@controller_channel_format`: Either `anim` or `ramp` The ramp format stores key positions, values, and interpolation type. The anim format stores evenly spaced values.
+* `s@controller`: The controller channel data.
+* Either the `ramp` format `k.kk k.kk k.kk: v.vv v.vv v.vv: interp interp interp` or the `anim` format `v.vv v.vv v.vv v.vv v.vv`
+* `f@sample_rate`: The sample rate of the controller. It's either a samples-per-second rate for the `anim` format or -1 for the `ramp` format.
+* `s@controller_name`: The controller channel name or label. While this attribute is note required for final output it is used extensivly in the functionality of many controller channel nodes.
 
 **Point attributes** used for ***workability*** in HMT:
 * `s@note_letter`: The commonplace keyboard letter assignment of the note
