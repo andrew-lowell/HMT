@@ -60,8 +60,8 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[18 Doppler Application](https://vimeo.com/425016788)**
 * **[19 Drum Loops](https://vimeo.com/437284890)** ***(User Tutorial)***
 * **[20 Note Editing](https://vimeo.com/460053769)**
-* **21 New Features in HMT 2.0**
-* **22 Controller Channel I/O**
+* **[21 New Features in HMT 2.0](https://vimeo.com/536575305)**
+* **[22 Controller Channel I/O](https://vimeo.com/536575516)**
 * **23 Controller Conversion and Resampling**
 * **24 Controller Duplication**
 * **25 Controller Example: Particle Position**
