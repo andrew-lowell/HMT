@@ -1,0 +1,89 @@
+Application: Reason
+Instrument:  Malstrom
+
+1: Mod Wheel 
+5: Portamento 
+7: Master Level 
+9: Oscillator B Decay 
+12: Oscillator B Sustain 
+14: Filter Env Attack 
+15: Filter Env Decay 
+16: Filter Env Sustain 
+17: Filter Env Release 
+18: Filter Env Amount 
+19: Filter Env Invert 
+21: Oscillator B Octave 
+22: Oscillator B Semi 
+23: Oscillator B Cent 
+25: Modulator A On/Off 
+26: Modulator A Rate 
+27: Modulator A To Pitch 
+28: Modulator A Curve 
+29: Modulator A One Shot 
+30: Modulator A Target 
+31: Modulator A To Index
+33: Mod Wheel To Filter 
+34: Mod Wheel To Index 
+35: Mod Wheel To Modulator
+36: Mod Wheel Target 
+37: Mod Wheel To Shift 
+39: Pitch Bend Range 
+40: Modulator A To Shift 
+41: Oscillator B On/Off 
+42: Oscillator B Index 
+43: Oscillator B Motion 
+44: Oscillator B Shift
+46: Velocity To Filter Env 
+47: Velocity Target 
+48: Velocity To Attack 
+49: Velocity To Level B 
+50: Velocity To Level A
+51: Velocity To Shift
+52: Velocity To Modulator
+53: Oscillator B Gain
+54: Filter A On/Off
+55: Filter A Mode 
+56: Shaper On/Off 
+57: Shaper Mode 
+58: Shaper Amount
+59: Route Oscillator B To Filter B
+60: Route Oscillator A To Filter B
+61: Route Oscillator A To Shaper
+62: Route Filter B To Shaper
+68: Legato On/Off 
+69: Modulator A Sync
+70: Modulator B Sync
+71: Filter B Resonance 
+72: Oscillator B Release 
+73: Oscillator B Attack 
+74: Filter B Freq 
+75: Filter B On/Off 
+76: Filter B Mode 
+77: Filter B Kbd Track 
+78: Filter A Resonance
+79: Filter A Freq
+80: Filter A Env 
+81: Filter A Kbd Track
+82: Filter B Env
+86: Oscillator A Shift
+87: Oscillator A Attack
+88: Oscillator A Decay
+89: Oscillator A Sustain
+90: Oscillator A Release
+91: Oscillator A Gain
+92: Oscillator A Motion
+93: Oscillator A Index
+95: Oscillator A On/Off
+102: Oscillator A Octave
+103: Oscillator A Semi
+104: Oscillator A Cent
+105: Spread Amount
+110: Modulator B Rate
+111: Modulator B To Level
+112: Modulator B To Filter
+113: Modulator B To Modulator A
+114: Modulator B On/Off
+115: Modulator B Curve
+116: Modulator B One Shot
+117: Modulator B Target
+118: Modulator B To Motion

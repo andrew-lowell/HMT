@@ -1,0 +1,10 @@
+Application: Kontakt Player
+Instrument:  Synth
+
+2: Volume
+3: Pan
+4: Cutoff
+5: Reso
+6: Sound
+7: Rv Amt
+10: Tune

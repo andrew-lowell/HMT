@@ -1,0 +1,23 @@
+Application: Reason
+Instrument: Line Mixer 6x2
+
+7: Master Level
+8: Channel 1 Level
+9: Channel 2 Level
+10: Channel 3 Level
+12: Channel 4 Level
+13: Channel 5 Level
+14: Channel 6 Level
+23: Channel 1 Pan
+24: Channel 2 Pan
+25: Channel 3 Pan
+26: Channel 4 Pan
+27: Channel 5 Pan
+28: Channel 6 Pan
+39: Channel 1 Aux Send
+40: Channel 2 Aux Send
+41: Channel 3 Aux Send
+42: Channel 4 Aux Send
+43: Channel 5 Aux Send
+44: Channel 6 Aux Send
+116: Aux Return Level

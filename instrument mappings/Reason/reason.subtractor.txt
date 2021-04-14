@@ -1,0 +1,84 @@
+Application: Reason
+Instrument:  Subtractor
+
+1: Mod Wheel
+5: Portamento
+7: Master Level
+9: Amp Env Decay
+12: Amp Env Sustain
+14: Filter Env Attack
+15: Filter Env Decay
+16: Filter Env Sustain
+17: Filter Env Release
+18: Filter Env Amount
+19: Filter Env Invert
+20: Osc1 Wave
+21: Osc1 Octave
+22: Osc1 Semitone
+23: Osc1 Fine Tune
+25: Osc1 Kbd Track
+26: LFO1 Rate
+27: LFO1 Amount
+28: LFO1 Wave
+29: LFO1 Dest
+30: LFO Syn Enable
+33: Filter Freq Mod Wheel Amount
+34: Filter Res Mod Wheel Amount
+35: LFO1 Mod Wheel Amount
+36: FM Mod Wheel Amount
+37: Phase Diff Mod Wheel Amount
+39: Pitch Bend Range
+40: Filter Freq Ext Mod
+41: LFO1 Ext Mod
+42: Amp Ext Mod
+43: Ext Mod Select
+44: FM Ext Mod
+45: Amp Vel Amount
+46: Filter Env Vel Amount
+47: Filter Decay Vel Amount
+48: Amp Attack Vel Attack
+49: FM Vel Amount
+50: Mod Env Vel Amount
+51: Phase Vel Amount
+52: Filter2 Freq Vel Amount
+53: Mix Vel Amount
+68: Key Mode
+71: Filter Res
+72: Amp Env Release
+73: Amp Env Attack
+74: Filter Freq
+75: Filter2 On/Off
+76: Filter Type
+77: Filter Kbd Track
+78: Filter2 Res
+79: Filter2 Freq
+80: Filter Link Freq On/Off
+81: Noise On/Off
+82: Noise Level
+83: Noise Decay
+84: Noise Color
+85: Mod Env Gain
+86: Mod Env Invert
+87: Mod Env Attack
+88: Mod Env Decay
+89: Mod Env Sustain
+90: Mod Env Release
+91: Mod Env Dest
+92: Osc1 Phase Mode
+93: Osc1 Phase Diff
+94: Osc2 On/Off
+95: Osc2 Wave
+102: Osc2 Octave
+103: Osc2 Semitone
+104: Osc2 Fine Tune
+105: Osc2 Phase Mode
+106: Osc2 Phase Diff
+107: Osc Mix
+108: FM Amount
+109: Ring Mod
+110: LFO2 Rate
+111: LFO2 Amount
+112: LFO2 Delay
+113: LFO2 Dest
+114: LFO2 Kbd Track
+115: Osc2 Kbd Track
