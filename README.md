@@ -62,7 +62,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[20 Note Editing](https://vimeo.com/460053769)**
 * **[21 New Features in HMT 2.0](https://vimeo.com/536575305)**
 * **[22 Controller Channel I/O](https://vimeo.com/536575516)**
-* **23 Controller Conversion and Resampling**
+* **[23 Controller Conversion and Resampling](https://vimeo.com/540892566)**
 * **24 Controller Duplication**
 * **25 Controller Example: Particle Position**
 * **26 Exacting Controller Functions**
