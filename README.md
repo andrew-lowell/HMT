@@ -64,14 +64,14 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[22 Controller Channel I/O](https://vimeo.com/536575516)**
 * **[23 Controller Conversion and Resampling](https://vimeo.com/540892566)**
 * **[24 Controller Duplication](https://vimeo.com/544867864)**
-* **25 Controller Example: Particle Position**
+* **[25 Example: Particle Position](https://vimeo.com/547344452)**
 * **26 Exacting Controller Functions**
 * **27 Controller Shaping**
 * **28 Controller Timing**
 * **29 Controller Triggering**
-* **30 Controller Example: Rotating Cube**
-* **31 Controller Example: Color/Tone Blending**
-* **32 Controller Example: Orbital**
+* **30 Example: Rotating Cube**
+* **31 Example: Color/Tone Blending**
+* **32 Example: Orbital**
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
