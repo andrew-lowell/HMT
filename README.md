@@ -65,7 +65,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[23 Controller Conversion and Resampling](https://vimeo.com/540892566)**
 * **[24 Controller Duplication](https://vimeo.com/544867864)**
 * **[25 Example: Particle Position](https://vimeo.com/547344452)**
-* **26 Exacting Controller Functions**
+* **[26 Exacting Controller Functions](https://vimeo.com/557082144)**
 * **27 Controller Shaping**
 * **28 Controller Timing**
 * **29 Controller Triggering**
