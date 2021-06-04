@@ -38,7 +38,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[Version 1 Introduction and Demonstration](https://vimeo.com/425382356/a4a52d71c1)**
 * **[Version 2 Introduction and Demonstration](https://vimeo.com/536214871)**
 
-*** Version 1 Tutorial Links (Musical Notes) ***
+### Usage basics: Version 1 Tutorial Links - Musical Notes
 * **[Installation and Sound Check](https://vimeo.com/416777838)**
 * **[Simple Note](https://vimeo.com/416991416)**
 * **[Note Patterns](https://vimeo.com/417402929)**
