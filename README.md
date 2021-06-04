@@ -38,7 +38,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[Version 1 Introduction and Demonstration](https://vimeo.com/425382356/a4a52d71c1)**
 * **[Version 2 Introduction and Demonstration](https://vimeo.com/536214871)**
 
-### Usage basics: Version 1 Tutorial Links - Musical Notes
+### Version 1 Tutorial Links - Musical Notes:
 * **[Installation and Sound Check](https://vimeo.com/416777838)**
 * **[Simple Note](https://vimeo.com/416991416)**
 * **[Note Patterns](https://vimeo.com/417402929)**
@@ -58,10 +58,9 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[Velocity Distance](https://vimeo.com/424655810)**
 * **[Doppler Setup](https://vimeo.com/424996327)**
 * **[Doppler Application](https://vimeo.com/425016788)**
-
 * **[Note Editing](https://vimeo.com/460053769)**
 
-*** Version 2 Tutorial Links (MIDI Controller Channels) ***
+### Version 2 Tutorial Links - MIDI Controller Channels:
 * **[New Features in HMT 2.0](https://vimeo.com/536575305)**
 * **[Controller Channel I/O](https://vimeo.com/536575516)**
 * **[Controller Conversion and Resampling](https://vimeo.com/540892566)**
@@ -75,7 +74,7 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * ** Example: Color/Tone Blending**
 * ** Example: Orbital**
 
-***User Tutorials***
+### User Tutorials:
 * **[Drum Loops](https://vimeo.com/437284890)** ***(User Tutorial)***
 
 ***Shelf Tools***
