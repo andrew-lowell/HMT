@@ -38,40 +38,45 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[Version 1 Introduction and Demonstration](https://vimeo.com/425382356/a4a52d71c1)**
 * **[Version 2 Introduction and Demonstration](https://vimeo.com/536214871)**
 
-***Tutorial Links***
-* **[00 Installation and Sound Check](https://vimeo.com/416777838)**
-* **[01 Simple Note](https://vimeo.com/416991416)**
-* **[02 Note Patterns](https://vimeo.com/417402929)**
-* **[03 Chords](https://vimeo.com/428397014)**
-* **[04 MIDI IO](https://vimeo.com/417931944)**
-* **[05 Time Adjustment](https://vimeo.com/417932182)**
-* **[06 Timing Setup](https://vimeo.com/419194667)**
-* **[07 Pitch Setup](https://vimeo.com/419194847)**
-* **[08 Duration Setup](https://vimeo.com/419451031)**
-* **[09 Panning Setup](https://vimeo.com/420559800)**
-* **[10 Velocity Setup](https://vimeo.com/420579796)**
-* **[11 Timing Distortion](https://vimeo.com/421363770)**
-* **[12 Velocity Impulse](https://vimeo.com/422014745)**
-* **[13 Modal Setup](https://vimeo.com/424223637)**
-* **[14 Modal Assignment](https://vimeo.com/424411732)**
-* **[15 Velocity Impact](https://vimeo.com/424437612)**
-* **[16 Velocity Distance](https://vimeo.com/424655810)**
-* **[17 Doppler Setup](https://vimeo.com/424996327)**
-* **[18 Doppler Application](https://vimeo.com/425016788)**
-* **[19 Drum Loops](https://vimeo.com/437284890)** ***(User Tutorial)***
-* **[20 Note Editing](https://vimeo.com/460053769)**
-* **[21 New Features in HMT 2.0](https://vimeo.com/536575305)**
-* **[22 Controller Channel I/O](https://vimeo.com/536575516)**
-* **[23 Controller Conversion and Resampling](https://vimeo.com/540892566)**
-* **[24 Controller Duplication](https://vimeo.com/544867864)**
-* **[25 Example: Particle Position](https://vimeo.com/547344452)**
-* **[26 Exacting Controller Functions](https://vimeo.com/557082144)**
-* **27 Controller Shaping**
-* **28 Controller Timing**
-* **29 Controller Triggering**
-* **30 Example: Rotating Cube**
-* **31 Example: Color/Tone Blending**
-* **32 Example: Orbital**
+*** Version 1 Tutorial Links (Musical Notes) ***
+* **[Installation and Sound Check](https://vimeo.com/416777838)**
+* **[Simple Note](https://vimeo.com/416991416)**
+* **[Note Patterns](https://vimeo.com/417402929)**
+* **[Chords](https://vimeo.com/428397014)**
+* **[MIDI IO](https://vimeo.com/417931944)**
+* **[Time Adjustment](https://vimeo.com/417932182)**
+* **[Timing Setup](https://vimeo.com/419194667)**
+* **[Pitch Setup](https://vimeo.com/419194847)**
+* **[Duration Setup](https://vimeo.com/419451031)**
+* **[Panning Setup](https://vimeo.com/420559800)**
+* **[Velocity Setup](https://vimeo.com/420579796)**
+* **[Timing Distortion](https://vimeo.com/421363770)**
+* **[Velocity Impulse](https://vimeo.com/422014745)**
+* **[Modal Setup](https://vimeo.com/424223637)**
+* **[Modal Assignment](https://vimeo.com/424411732)**
+* **[Velocity Impact](https://vimeo.com/424437612)**
+* **[Velocity Distance](https://vimeo.com/424655810)**
+* **[Doppler Setup](https://vimeo.com/424996327)**
+* **[Doppler Application](https://vimeo.com/425016788)**
+
+* **[Note Editing](https://vimeo.com/460053769)**
+
+*** Version 2 Tutorial Links (MIDI Controller Channels) ***
+* **[New Features in HMT 2.0](https://vimeo.com/536575305)**
+* **[Controller Channel I/O](https://vimeo.com/536575516)**
+* **[Controller Conversion and Resampling](https://vimeo.com/540892566)**
+* **[Controller Duplication](https://vimeo.com/544867864)**
+* **[Example: Particle Position](https://vimeo.com/547344452)**
+* **[Exacting Controller Functions](https://vimeo.com/557082144)**
+* ** Controller Shaping**
+* ** Controller Timing**
+* ** Controller Triggering**
+* ** Example: Rotating Cube**
+* ** Example: Color/Tone Blending**
+* ** Example: Orbital**
+
+***User Tutorials***
+* **[Drum Loops](https://vimeo.com/437284890)** ***(User Tutorial)***
 
 ***Shelf Tools***
 * **MIDI IO Setup**: This will create a MIDI Output to a `.midi` file. Then downstream read the same file in and play it back through a live MIDI channel (Windows only).
