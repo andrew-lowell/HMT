@@ -67,12 +67,12 @@ While the toolset is based entirely in Houdini and will perform it's sequencing 
 * **[Controller Duplication](https://vimeo.com/544867864)**
 * **[Example: Particle Position](https://vimeo.com/547344452)**
 * **[Exacting Controller Functions](https://vimeo.com/557082144)**
-* ** Controller Shaping**
-* ** Controller Timing**
-* ** Controller Triggering**
-* ** Example: Rotating Cube**
-* ** Example: Color/Tone Blending**
-* ** Example: Orbital**
+* **Controller Shaping**
+* **Controller Timing**
+* **Controller Triggering**
+* **Example: Rotating Cube**
+* **Example: Color/Tone Blending**
+* **Example: Orbital**
 
 ***User Tutorials***
 * **[Drum Loops](https://vimeo.com/437284890)** ***(User Tutorial)***
