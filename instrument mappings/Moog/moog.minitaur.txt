@@ -1,0 +1,43 @@
+Application: Moog
+Instrument:  Minitaur
+
+3: LFO Rate
+13: LFO VCO Amount
+12: LFO VCF Amount
+87: LFO MIDI Sync
+86: LFO Sync Clock Div
+82: LFO Key Trigger
+70: VCO 1 Wave
+71: VCO 2 Wave
+17: VCO 2 Freq
+18: VCO 2 Beat
+81: Note Sync
+5: Glide Rate
+65: Glide Switch
+92: Glide Type
+83: Legato Glide
+15: VCO 1
+16: VCO 2
+27: External In Level
+19: Cutoff
+21: Resonance
+22: EG Amount
+20: Filter KB Track
+89: Filter Velocity Sensitivity
+23: VCF Attack
+24: VCF Decay/Release
+25: VCF Sustain
+28: VCA Attack
+29: VCA Decay/Release
+30: VCA Sustain
+72: Release Switch
+73: Trigger Mode
+7: VCA (Output) Level
+90: Volume Velocity Sensitivity
+91: Key Priority
+1: Mod Wheel
+107: Bend Up Amount
+108: Bend Down Amount
+122: Local Control Off
+120: All Sounds Off
+123: All Notes Off
