@@ -1,0 +1,4 @@
+curl https://bootstrap.pypa.io/get-pip.py -o C:/TEMP/get-pip.py
+hython C:/TEMP/get-pip.py
+hython -m pip install mido
+hython -m pip install python-rtmidi
